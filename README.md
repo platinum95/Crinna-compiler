@@ -1,4 +1,5 @@
-Kind of like a mix of Verilog, C, and PHDL.
+# Crinna
+Kind of like a mix of Verilog, C, and PHDL? Subject to (lots of) change.
 
 primitives:
     - All the C-primitives for non-synthesised stuff
@@ -76,9 +77,9 @@ This module can then be used in other modules like so:
 
 module filterBank( net inSignal, net outSignal, net gnd )
     net f1Out, f2Out;
-    HelloRC f1( inSignal, f1Out, gnd );
-    HelloRC f2( f1Out, f2Out, gnd );
-    HelloRC f3( f2Out, outSignal, gnd );
+    HelloRC< 1000 > f1( inSignal, f1Out, gnd );
+    HelloRC< 512 > f2( f1Out, f2Out, gnd );
+    HelloRC< 2048 > f3( f2Out, outSignal, gnd );
 endmodule
 ```
 
